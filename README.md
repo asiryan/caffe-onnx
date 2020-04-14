@@ -1,6 +1,6 @@
 # caffe-onnx
-This tool converts caffe model convert to onnx model  
-only use for inference
+This tool converts caffe model convert to onnx model.  
+Only use for inference.
 
 ## Introduction  
 This is the second version of converting caffe model to onnx model. In this version, all the parameters will be transformed to tensor and tensor value info when reading `.caffemodel` file and each operator node is constructed directly into the type of NodeProto in onnx.
@@ -64,10 +64,12 @@ Take ResNet-50 as an example, you can follow the instructions.
         ```
 
     - Then specify the caffe proto file by replacing the line `from proto import caffe_upsample_pb2 as caffe_pb2` with your module.
-      
+   
+   
+## Test
+Run **test.bat** for converting test caffe model to onnx.  
 
-
-## Current Support Operator  
+## Supported operators  
 BatchNorm  
 Convolution  
 Deconvolution  
