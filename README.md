@@ -67,7 +67,7 @@ Take ResNet-50 as an example, you can follow the instructions.
    
    
 ## Test
-Run **test.bat** for converting test caffe model to onnx.  
+Run **test.bat** to convert **test.caffemodel** to onnx.  
 
 ## Supported operators  
 BatchNorm  
