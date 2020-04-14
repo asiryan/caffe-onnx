@@ -27,36 +27,18 @@ positional arguments:
   save_dir                  onnx model file saved path
 ```  
 
-Take ResNet-50 as an example, you can follow the instructions.
+1. As an example convert test network to onnx model by command
+```
+python convert.py caffemodel/test.prototxt caffemodel/test.caffemodel test onnxmodel
+```
+or run `test.bat`.
 
-1. Download resnet50 `.caffemodel` file from BaiduDisk and put `resnet-50-model.caffemodel` to `./caffemodel/resnet-50/`  
-    Link：https://pan.baidu.com/s/10YB42muAd0vGiNTCetvLsA  
-    Code：7az4 
-
-2. Convert resnet50 caffe model to onnx model
-    ```bash
-    $ python convert.py \
-              caffemodel/resnet-50/resnet-50-model.prototxt \
-              caffemodel/resnet-50/resnet-50-model.caffemodel \
-              resnet50 onnxmodel
-    ```
-
-3. Visualize onnx model by netron
+2. Visualize onnx model by netron
     ```bash
     $ netron onnxmodel/resnet50.onnx --host 0.0.0.0 --port 8008
     ```
 
-4. Run test scripts
-    ```bash
-    $ python onnxmodel/test_resnet.py \
-              --input_shape 224 224 \
-              --img_path onnxmodel/airplane.jpg \
-              --onnx_path onnxmodel/resnet50.onnx
-
-    # you will get result 404 which is the class id of airplane in IMAGENET.
-    ```
-
-5. If you have custom layers in caffe which makes your `caffe.proto` is different than the one in the origin caffe code. The things you should do before convertion is:  
+3. If you have custom layers in caffe which makes your `caffe.proto` is different than the one in the origin caffe code. The things you should do before convertion is:  
     - First of all, compile your proto file with `protoc`
         ```bash
         # for example
@@ -65,9 +47,6 @@ Take ResNet-50 as an example, you can follow the instructions.
 
     - Then specify the caffe proto file by replacing the line `from proto import caffe_upsample_pb2 as caffe_pb2` with your module.
    
-   
-## Test
-Run `test.bat` to convert `caffemodel/test/test.caffemodel` to `onnxmodel/test.onnx`.  
 
 ## Supported operators  
 BatchNorm  
