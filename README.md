@@ -64,10 +64,5 @@ Scale
 - Sphereface  
 
 
-## Visualization  
-[Netron](https://github.com/lutzroeder/netron)  
-[Netron Browser](https://lutzroeder.github.io/netron/)  
-
-
 ## Development Guide
 See [Develop Guide](./DEVELOP_GUIDE.md)
