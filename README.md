@@ -84,14 +84,14 @@ Upsample
 Scale  
 
 
-## Test Caffe Model  
+## Caffe models  
 - Resnet50  
 - AlexNet  
 - Agenet  
 - Yolo V3  
 - vgg16  
-- GoogLeNet
-- Sphereface
+- GoogLeNet  
+- Sphereface  
 
 
 ## Visualization  
