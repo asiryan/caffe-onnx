@@ -1,2 +1,2 @@
-python convert.py caffemodel/test/test.prototxt caffemodel/test/test.caffemodel test onnxmodel
+python convert.py caffemodel/test.prototxt caffemodel/test.caffemodel test onnxmodel
 pause

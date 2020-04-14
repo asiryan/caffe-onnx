@@ -1,1 +1,0 @@
-This caffe model for testing is the bottom 5 layers of ResNet50.
