@@ -25,20 +25,10 @@ positional arguments:
   caffe_params_path         caffe's caffemodel file path
   onnx_name                 onnx model name
   save_dir                  onnx model file saved path
-```  
-
-1. As an example convert test network to onnx model by command
-```
-python convert.py caffemodel/test.prototxt caffemodel/test.caffemodel test onnxmodel
-```
-or run `test.bat`.
-
-2. Visualize onnx model by netron
-```bash
-netron onnxmodel/resnet50.onnx --host 0.0.0.0 --port 8008
 ```
 
-3. If you have custom layers in caffe which makes your `caffe.proto` is different than the one in the origin caffe code. The things you should do before convertion is:  
+## Proto
+If you have custom layers in caffe which makes your `caffe.proto` is different than the one in the origin caffe code. The things you should do before convertion is:  
 - First of all, compile your proto file with `protoc`
 ```bash
 # for example
