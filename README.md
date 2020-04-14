@@ -18,7 +18,7 @@ $ pip install -r requirements.txt
 
 ## How to Use  
 ```
-usage: convert2onnx.py [-h] [caffe_graph_path] [caffe_params_path] [onnx_name] [save_dir]
+usage: convert.py [-h] [caffe_graph_path] [caffe_params_path] [onnx_name] [save_dir]
 
 positional arguments:
   caffe_graph_path          caffe's prototxt file path
