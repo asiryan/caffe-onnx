@@ -1,8 +1,7 @@
 from onnx import TensorProto
-
 from proto import caffe_upsample_pb2 as caffe_pb2
 
-
+# caffe layers
 Layer_CONCAT = caffe_pb2.V1LayerParameter.CONCAT #3
 Layer_CONVOLUTION = caffe_pb2.V1LayerParameter.CONVOLUTION #4
 Layer_DROPOUT = caffe_pb2.V1LayerParameter.DROPOUT #6

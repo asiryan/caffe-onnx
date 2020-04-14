@@ -1,17 +1,17 @@
 import src.c2oObject as Node
-##--------------------------------------------------relu层------------------------------------------------------------##
-#获取超参数
+##--------------------------------------------------Relu------------------------------------------------------------##
+# Get hyperparameters
 def getReluAttri(layer):
     dict = {}
     if layer.relu_param.negative_slope != 0:
         dict = {"alpha":layer.relu_param.negative_slope}
     return dict
-#计算输出维度
+# Calculate the output dimension
 def getReluOutShape(input_shape):
-    #获取output_shape
+    # Get output_shape
     output_shape = input_shape
     return output_shape
-#构建节点
+# Build node
 def createRelu(layer,nodename,inname,outname,input_shape):
     dict = getReluAttri(layer)
     output_shape = getReluOutShape(input_shape)
@@ -21,5 +21,5 @@ def createRelu(layer,nodename,inname,outname,input_shape):
     else:
         node = Node.c2oNode(layer, nodename, "LeakyRelu", inname, outname, input_shape, output_shape, dict=dict)
 
-    print(nodename, "节点构建完成")
+    print(nodename, " node construction completed")
     return node

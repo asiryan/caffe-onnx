@@ -1,33 +1,33 @@
 import numpy as np
 import src.c2oObject as Node
-##---------------------------------------------------ConvTranspose层-------------------------------------------------------##
-#获取超参数
+##---------------------------------------------------ConvTranspose-------------------------------------------------------##
+# Get hyperparameters
 def getConvTransposeAttri(layer):
-    ##膨胀系数dilations
+    # Expansion coefficient dilations
     dilations = [1, 1]
     if layer.convolution_param.dilation != []:
         dilation = layer.convolution_param.dilation[0]
         dilations = [dilation, dilation]
-    ##填充pads
-    pads = [0, 0, 0, 0]  # 默认为0
-    if layer.convolution_param.pad != []:  # 若存在pad,则根据pad赋值
+
+    # Fill pads
+    pads = [0, 0, 0, 0]  # default is 0
+    if layer.convolution_param.pad != []:  # If there is a pad, the value is assigned according to the pad
         pads = np.array([layer.convolution_param.pad] * 4).reshape(1, -1)[0].tolist()
-    elif layer.convolution_param.pad_h != 0 or layer.convolution_param.pad_w != 0:  # 若存在pad_w,pad_h则根据其赋值
+    elif layer.convolution_param.pad_h != 0 or layer.convolution_param.pad_w != 0:  # If there is pad_w, pad_h is assigned according to it
         pads = [layer.convolution_param.pad_h, layer.convolution_param.pad_w, layer.convolution_param.pad_h,
                 layer.convolution_param.pad_w]
-    ##步长strides
-    strides = [1, 1]  # 默认为1
+    # Strides
+    strides = [1, 1]  # default is 1
     if layer.convolution_param.stride != []:
         strides = np.array([layer.convolution_param.stride] * 2).reshape(1, -1)[0].tolist()
-    ##卷积核尺寸kernel_shape
+    # Kernel_shape
     kernel_shape = np.array([layer.convolution_param.kernel_size] * 2).reshape(1, -1)[0].tolist()
     if layer.convolution_param.kernel_size == []:
         kernel_shape = [layer.convolution_param.kernel_h, layer.convolution_param.kernel_w]
-    ##分组group
+    # Group
     group = layer.convolution_param.group
 
-
-    # 超参数字典
+    # Hyperparameter dictionary
     dict = {  # "auto_pad":"NOTSET",
         "dilations": dilations,
         "group": group,
@@ -36,13 +36,14 @@ def getConvTransposeAttri(layer):
         "strides": strides
     }
     return dict
-#计算输出维度
+
+# Calculate the output dimension
 def getConvTransposeOutShape(input_shape, layer,dict):
     dilations = dict["dilations"]
     kernel_shape = dict["kernel_shape"]
     pads = dict["pads"]
     strides = dict["strides"]
-    ##卷积核数量kernel_num
+    ## Number of convolution kernelskernel_num
     kernel_num = layer.convolution_param.num_output
 
     def get_output_shape(i, k, p, s):
@@ -50,16 +51,15 @@ def getConvTransposeOutShape(input_shape, layer,dict):
 
     h = get_output_shape(input_shape[0][2], kernel_shape[0], pads[0], strides[0])
     w = get_output_shape(input_shape[0][3], kernel_shape[1], pads[1], strides[1])
-
     output_shape = [[input_shape[0][0], kernel_num, h, w]]
-
     return output_shape
-#构建节点
+
+# Build node
 def createConvTranspose(layer, nodename, inname, outname, input_shape):
     dict = getConvTransposeAttri(layer)
     output_shape = getConvTransposeOutShape(input_shape, layer, dict)
-    #构建node
+    # Build node
     node = Node.c2oNode(layer, nodename, "ConvTranspose", inname, outname, input_shape, output_shape, dict)
-    print(nodename, "节点构建完成")
+    print(nodename, " node construction completed")
     return node
 

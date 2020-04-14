@@ -1,32 +1,34 @@
 import src.c2oObject as Node
-##-------------------------------------------------LRN层-------------------------------------------------------------##
-#获取超参数
+##-------------------------------------------------LRN-------------------------------------------------------------##
+# Get hyperparameters
 def getLRNAttri(layer):
-    # 获取超参数
-    ##尺寸
+    #  Get hyperparameters
+    # Size
     size = layer.lrn_param.local_size
-    ##alpha
+    # Alpha
     alpha = layer.lrn_param.alpha
-    ##beta
+    # Beta
     beta = layer.lrn_param.beta
 
-    # 超参数字典
+    # Hyperparameter dictionary
     dict = {"alpha":alpha,
             "beta":beta,
             "bias":1.0,
             "size": size}
     return dict
-#计算输出维度
+
+# Calculate the output dimension
 def getLRNOutShape(input_shape):
-    # 计算输出维度output_shape
-    output_shape = input_shape  # 与输入维度一样
+    #  Calculate the output dimensionoutput_shape
+    output_shape = input_shape  # Same as input dimension
     return output_shape
-#构建节点
+
+# Build node
 def createLRN(layer,nodename, inname,outname,input_shape):
     dict = getLRNAttri(layer)
     output_shape = getLRNOutShape(input_shape)
 
-    #构建node
+    # Build node
     node = Node.c2oNode(layer, nodename, "LRN", inname, outname, input_shape, output_shape, dict)
-    print(nodename, "节点构建完成")
+    print(nodename, " node construction completed")
     return node

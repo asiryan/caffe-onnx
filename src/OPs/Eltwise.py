@@ -1,36 +1,35 @@
 import src.c2oObject as Node
-##-------------------------------------------------eltwise层----------------------------------------------------------##
+##-------------------------------------------------Eltwise----------------------------------------------------------##
 def createEltwise(layer, nodename, inname, outname, input_shape):
-    #判断算子类型
+    # Determine the operator type
     if layer.eltwise_param.operation == 0:
-        node = __createMul(layer, nodename, inname, outname, input_shape)#按元素相乘
+        node = __createMul(layer, nodename, inname, outname, input_shape) # Multiply by element
 
     elif layer.eltwise_param.operation == 1:
-        node = __createAdd(layer, nodename, inname, outname, input_shape)#按元素相加
+        node = __createAdd(layer, nodename, inname, outname, input_shape) # Add by element
 
     elif layer.eltwise_param.operation == 2:
-        node = __createMax(layer, nodename, inname, outname, input_shape)#按元素求最大值
+        node = __createMax(layer, nodename, inname, outname, input_shape) # Find the maximum value by element
 
     return node
 
-
-
-##----------------------------------------------Mul层,对应Prod-----------------------------------------------##
+##----------------------------------------------Mul layer, corresponding to Prod-----------------------------------------------##
 def __createMul(layer, nodename, inname, outname, input_shape):
     output_shape = input_shape[0]
     node = Node.c2oNode(layer, nodename, "Mul", inname, outname, input_shape, output_shape)
-    print(nodename, "节点构建完成")
+    print(nodename, " node construction completed")
     return node
 
-##---------------------Add层,可能是两个中间层输出相加，也可能是一个输出加一个bias这种------------------------##
+##---------------------Add layer, which may be the addition of two intermediate layer outputs, or it may be an output plus a bias------------------------##
 def __createAdd(layer, nodename, inname, outname, input_shape):
     output_shape = [input_shape[0]]
     node = Node.c2oNode(layer, nodename, "Add", inname, outname, input_shape, output_shape)
-    print(nodename, "节点构建完成")
+    print(nodename, " node construction completed")
     return node
-##----------------------------------------------Max层-------------------------------------------------------------##
+
+##----------------------------------------------Max-------------------------------------------------------------##
 def __createMax(layer, nodename, inname, outname, input_shape):
     output_shape = input_shape
     node = Node.c2oNode(layer, nodename, "Max", inname, outname, input_shape, output_shape)
-    print(nodename, "节点构建完成")
+    print(nodename, " node construction completed")
     return node

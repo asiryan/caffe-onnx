@@ -14,7 +14,7 @@ class c2oNode(object):
 
         self.dict = dict
 
-    #创建节点
+    # Create a node
     def __createNode(self, node_type, in_name, out_name, node_name, dict):
         node_def = helper.make_node(
             node_type,
@@ -28,10 +28,10 @@ class c2oNode(object):
 class c2oGraph():
     def __init__(self,onnxname):
         self.name = onnxname
-        self.in_tvi = []#存放输入信息，包括第一个输入和输入参数信息
-        self.out_tvi = []#存放输出信息
-        self.init_t = []#存放输入参数的值
-        self.hidden_out_tvi = []#存放中间输出信息
+        self.in_tvi = []         # Store input information
+        self.out_tvi = []        # Store output information
+        self.init_t = []         # Store the value of the input parameter
+        self.hidden_out_tvi = [] # Store intermediate output information
 
     def addInputsTVI(self,in_tvi):
         self.in_tvi.append(in_tvi)

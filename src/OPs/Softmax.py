@@ -1,22 +1,23 @@
 import src.c2oObject as Node
-##---------------------------------------------softmax层--------------------------------------------------------------##
-#获取超参数
+##---------------------------------------------Softmax--------------------------------------------------------------##
+# Get hyperparameters
 def getSoftmaxAttri(layer):
-    ##轴
     axis = layer.softmax_param.axis
-    #超参数字典
+    # Hyperparameter dictionary
     dict = {"axis": axis}
     return dict
-#计算输出维度
+
+# Calculate the output dimension
 def getSoftmaxOutShape(input_shape):
-    #计算输出维度output_shape
-    output_shape = input_shape#与输入维度一样
+    # Calculate the output dimensionoutput_shape
+    output_shape = input_shape # same as input dimension
     return output_shape
-#构建节点
+
+# Build node
 def createSoftmax(layer, nodename, inname, outname, input_shape):
     dict = getSoftmaxAttri(layer)
     output_shape = getSoftmaxOutShape(input_shape)
-    #构建node
+    # Build node
     node = Node.c2oNode(layer, nodename, "Softmax", inname, outname, input_shape, output_shape, dict)
-    print(nodename, "节点构建完成")
+    print(nodename, " node construction completed")
     return node

@@ -1,9 +1,7 @@
 import os
 import argparse
-
 from src.load_save_model import loadcaffemodel, saveonnxmodel
 from src.caffe2onnx import Caffe2Onnx
-
 
 def parse_args():
     parser = argparse.ArgumentParser()
