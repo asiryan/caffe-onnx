@@ -90,6 +90,8 @@ Scale
 - Agenet  
 - Yolo V3  
 - vgg16  
+- GoogLeNet
+- Sphereface
 
 
 ## Visualization  
