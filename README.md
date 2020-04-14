@@ -34,16 +34,16 @@ python convert.py caffemodel/test.prototxt caffemodel/test.caffemodel test onnxm
 or run `test.bat`.
 
 2. Visualize onnx model by netron
-    ```bash
-    $ netron onnxmodel/resnet50.onnx --host 0.0.0.0 --port 8008
-    ```
+```bash
+$ netron onnxmodel/resnet50.onnx --host 0.0.0.0 --port 8008
+```
 
 3. If you have custom layers in caffe which makes your `caffe.proto` is different than the one in the origin caffe code. The things you should do before convertion is:  
     - First of all, compile your proto file with `protoc`
-        ```bash
-        # for example
-        $ protoc /your/path/to/caffe_ssd.proto --python_out ./proto
-        ```
+```bash
+# for example
+$ protoc /your/path/to/caffe_ssd.proto --python_out ./proto
+```
 
     - Then specify the caffe proto file by replacing the line `from proto import caffe_upsample_pb2 as caffe_pb2` with your module.
    
