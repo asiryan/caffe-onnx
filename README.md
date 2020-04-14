@@ -35,7 +35,7 @@ Take ResNet-50 as an example, you can follow the instructions.
 
 2. Convert resnet50 caffe model to onnx model
     ```bash
-    $ python convert2onnx.py \
+    $ python convert.py \
               caffemodel/resnet-50/resnet-50-model.prototxt \
               caffemodel/resnet-50/resnet-50-model.caffemodel \
               resnet50 onnxmodel
