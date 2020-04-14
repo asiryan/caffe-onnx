@@ -97,8 +97,8 @@ Scale
 
 
 ## Visualization  
-netron is recommended: https://github.com/lutzroeder/netron  
-[netron Browser](https://lutzroeder.github.io/netron/)
+[Netron](https://github.com/lutzroeder/netron)  
+[Netron Browser](https://lutzroeder.github.io/netron/)  
 
 
 ## Development Guide
