@@ -28,7 +28,7 @@ positional arguments:
   frozen            frozen graph or not
 ```
 
-## Example usage
+## Example of Usage
 Download pretrained model for face gender prediction from the [link](https://data.vision.ee.ethz.ch/cvl/rrothe/imdb-wiki/) and convert caffe model to onnx using
 ```
 python convert.py --prototxt gender.prototxt --caffemodel gender.caffemodel --onnx gender.onnx --frozen true
