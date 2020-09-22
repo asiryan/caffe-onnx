@@ -28,6 +28,12 @@ positional arguments:
   frozen            frozen graph or not
 ```
 
+## Example usage
+Download pretrained model for face gender prediction from the [link](https://data.vision.ee.ethz.ch/cvl/rrothe/imdb-wiki/) and convert caffe model to onnx using
+```
+python convert.py --prototxt gender.prototxt --caffemodel gender.caffemodel --onnx gender.onnx --frozen true
+```
+
 ## Proto
 If you have custom layers in caffe which makes your `caffe.proto` is different than the one in the origin caffe code. The things you should do before convertion is:  
 - First of all, compile your proto file with `protoc`
