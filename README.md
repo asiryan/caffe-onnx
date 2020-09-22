@@ -18,13 +18,14 @@ $ pip install -r requirements.txt
 
 ## How to Use  
 ```
-usage: convert.py [-h] [caffe_graph_path] [caffe_params_path] [onnx_name] [save_dir]
+usage: convert.py [-h] --prototxt PROTOTXT --caffemodel CAFFEMODEL --onnx ONNX
+                  [--frozen FROZEN]
 
 positional arguments:
-  caffe_graph_path          caffe's prototxt file path
-  caffe_params_path         caffe's caffemodel file path
-  onnx_name                 onnx model name
-  save_dir                  onnx model file saved path
+  prototxt          caffe's prototxt file path
+  caffemodel        caffe's caffemodel file path
+  onnx              onnx model name
+  frozen            frozen graph or not
 ```
 
 ## Proto
