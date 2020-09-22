@@ -508,7 +508,7 @@ class Caffe2Onnx():
                 for k in range(len(innernode.outputs_shape)):
                     hid_out_tvi = helper.make_tensor_value_info(innernode.outputs_name[k], TensorProto.FLOAT,innernode.outputs_shape[k])
                     self.onnxmodel.addValueInfoTVI(hid_out_tvi)
-        print("Add model output information and model intermediate output information")
+        print("add model output information and model intermediate output information")
 
     # Create a model
     def createOnnxModel(self):
